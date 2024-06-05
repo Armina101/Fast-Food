@@ -1,172 +1,201 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import ProductCard from "../components/cards/ProductsCard";
-import { filter } from "../utils/data";
-import { CircularProgress, Slider } from "@mui/material";
-import { getAllProducts } from "../api";
+import React, { useState, useEffect } from "react";
 
-const Container = styled.div`
-  padding: 20px 30px;
-  padding-bottom: 200px;
-  height: 100%;
-  overflow-y: scroll;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  gap: 30px;
-  @media (max-width: 700px) {
-    flex-direction: column;
-    padding: 20px 12px;
-  }
-  background: ${({ theme }) => theme.bg};
-`;
-const Filters = styled.div`
-  padding: 20px 16px;
-  flex: 1;
-  width: 100%;
-  max-width: 300px;
-  @media (max-width: 700px) {
-    max-width: 440px;
-  }
-`;
-const Menu = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-`;
-const Products = styled.div`
-  flex: 1;
-  padding: 20px 0px;
-`;
-const CardWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 32px;
-  justify-content: center;
-  @media (max-width: 760px) {
-    gap: 16px;
-  }
-`;
+import products from "../assets/fake-data/products";
+import { useParams } from "react-router-dom";
+import Helmet from "../components/Helmet/Helmet";
+import CommonSection from "../components/UI/common-section/CommonSection";
+import { Container, Row, Col } from "reactstrap";
 
-const FilterSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 12px;
-`;
-const Title = styled.div`
-  font-size: 20px;
-  font-weight: 500;
-`;
-const Item = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-`;
-const Selectableitem = styled.div`
-  cursor: pointer;
-  display: flex;
-  border: 1px solid ${({ theme }) => theme.text_secondary + 50};
-  color: ${({ theme }) => theme.text_secondary + 90};
-  border-radius: 8px;
-  padding: 2px 8px;
-  font-size: 16px;
-  width: fit-content;
-  ${({ selected, theme }) =>
-    selected &&
-    `
-  border: 1px solid ${theme.text_primary};
-  color: ${theme.text_primary};
-  background: ${theme.text_primary + 30};
-  font-weight: 500;
-  `}
-`;
+import { useDispatch } from "react-redux";
+import { cartActions } from "../store/shopping-cart/cartSlice";
 
-const FoodListing = () => {
-  const [loading, setLoading] = useState(false);
-  const [products, setProducts] = useState([]);
-  const [priceRange, setPriceRange] = useState([0, 1000]); // Default price range
-  const [selectedCategories, setSelectedCategories] = useState([]); // Default selected categories
+import "../styles/product-details.css";
 
-  const getFilteredProductsData = async () => {
-    setLoading(true);
-    // Call the API function for filtered products
-    await getAllProducts(
-      selectedCategories.length > 0
-        ? `minPrice=${priceRange[0]}&maxPrice=${
-            priceRange[1]
-          }&categories=${selectedCategories.join(",")}`
-        : `minPrice=${priceRange[0]}&maxPrice=${priceRange[1]}`
-    ).then((res) => {
-      setProducts(res.data);
-      setLoading(false);
-    });
+import ProductCard from "../components/UI/product-card/ProductCard";
+
+const FoodDetails = () => {
+  const [tab, setTab] = useState("desc");
+  const [enteredName, setEnteredName] = useState("");
+  const [enteredEmail, setEnteredEmail] = useState("");
+  const [reviewMsg, setReviewMsg] = useState("");
+  const { id } = useParams();
+  const dispatch = useDispatch();
+
+  const product = products.find((product) => product.id === id);
+  const [previewImg, setPreviewImg] = useState(product.image01);
+  const { title, price, category, desc, image01 } = product;
+
+  const relatedProduct = products.filter((item) => category === item.category);
+
+  const addItem = () => {
+    dispatch(
+      cartActions.addItem({
+        id,
+        title,
+        price,
+        image01,
+      })
+    );
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    console.log(enteredName, enteredEmail, reviewMsg);
   };
 
   useEffect(() => {
-    getFilteredProductsData();
-  }, [priceRange, selectedCategories]);
+    setPreviewImg(product.image01);
+  }, [product]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [product]);
 
   return (
-    <Container>
-      <Filters>
-        <Menu>
-          {filter.map((filters) => (
-            <FilterSection>
-              <Title>{filters.name}</Title>
-              {filters.value === "price" ? (
-                <Slider
-                  aria-label="Price"
-                  defaultValue={priceRange}
-                  min={0}
-                  max={1000}
-                  valueLabelDisplay="auto"
-                  marks={[
-                    { value: 0, label: "$0" },
-                    { value: 1000, label: "$1000" },
-                  ]}
-                  onChange={(e, newValue) => setPriceRange(newValue)}
-                />
-              ) : filters.value === "category" ? (
-                <Item>
-                  {filters.items.map((item) => (
-                    <Selectableitem
-                      key={item}
-                      selected={selectedCategories.includes(item)}
-                      onClick={() =>
-                        setSelectedCategories((prevCategories) =>
-                          prevCategories.includes(item)
-                            ? prevCategories.filter(
-                                (category) => category !== item
-                              )
-                            : [...prevCategories, item]
-                        )
-                      }
-                    >
-                      {item}
-                    </Selectableitem>
-                  ))}
-                </Item>
-              ) : null}
-            </FilterSection>
-          ))}
-        </Menu>
-      </Filters>
-      <Products>
-        <CardWrapper>
-          {loading ? (
-            <CircularProgress />
-          ) : (
-            <>
-              {products.map((product) => (
-                <ProductCard key={product._id} product={product} />
-              ))}
-            </>
-          )}
-        </CardWrapper>
-      </Products>
-    </Container>
+    <Helmet title="Product-details">
+      <CommonSection title={title} />
+
+      <section>
+        <Container>
+          <Row>
+            <Col lg="2" md="2">
+              <div className="product__images ">
+                <div
+                  className="img__item mb-3"
+                  onClick={() => setPreviewImg(product.image01)}
+                >
+                  <img src={product.image01} alt="" className="w-50" />
+                </div>
+                <div
+                  className="img__item mb-3"
+                  onClick={() => setPreviewImg(product.image02)}
+                >
+                  <img src={product.image02} alt="" className="w-50" />
+                </div>
+
+                <div
+                  className="img__item"
+                  onClick={() => setPreviewImg(product.image03)}
+                >
+                  <img src={product.image03} alt="" className="w-50" />
+                </div>
+              </div>
+            </Col>
+
+            <Col lg="4" md="4">
+              <div className="product__main-img">
+                <img src={previewImg} alt="" className="w-100" />
+              </div>
+            </Col>
+
+            <Col lg="6" md="6">
+              <div className="single__product-content">
+                <h2 className="product__title mb-3">{title}</h2>
+                <p className="product__price">
+                  {" "}
+                  Price: <span>${price}</span>
+                </p>
+                <p className="category mb-5">
+                  Category: <span>{category}</span>
+                </p>
+
+                <button onClick={addItem} className="addTOCart__btn">
+                  Add to Cart
+                </button>
+              </div>
+            </Col>
+
+            <Col lg="12">
+              <div className="tabs d-flex align-items-center gap-5 py-3">
+                <h6
+                  className={` ${tab === "desc" ? "tab__active" : ""}`}
+                  onClick={() => setTab("desc")}
+                >
+                  Description
+                </h6>
+                <h6
+                  className={` ${tab === "rev" ? "tab__active" : ""}`}
+                  onClick={() => setTab("rev")}
+                >
+                  Review
+                </h6>
+              </div>
+
+              {tab === "desc" ? (
+                <div className="tab__content">
+                  <p>{desc}</p>
+                </div>
+              ) : (
+                <div className="tab__form mb-3">
+                  <div className="review pt-5">
+                    <p className="user__name mb-0">Jhon Doe</p>
+                    <p className="user__email">jhon1@gmail.com</p>
+                    <p className="feedback__text">great product</p>
+                  </div>
+
+                  <div className="review">
+                    <p className="user__name mb-0">Jhon Doe</p>
+                    <p className="user__email">jhon1@gmail.com</p>
+                    <p className="feedback__text">great product</p>
+                  </div>
+
+                  <div className="review">
+                    <p className="user__name mb-0">Jhon Doe</p>
+                    <p className="user__email">jhon1@gmail.com</p>
+                    <p className="feedback__text">great product</p>
+                  </div>
+                  <form className="form" onSubmit={submitHandler}>
+                    <div className="form__group">
+                      <input
+                        type="text"
+                        placeholder="Enter your name"
+                        onChange={(e) => setEnteredName(e.target.value)}
+                        required
+                      />
+                    </div>
+
+                    <div className="form__group">
+                      <input
+                        type="text"
+                        placeholder="Enter your email"
+                        onChange={(e) => setEnteredEmail(e.target.value)}
+                        required
+                      />
+                    </div>
+
+                    <div className="form__group">
+                      <textarea
+                        rows={5}
+                        type="text"
+                        placeholder="Write your review"
+                        onChange={(e) => setReviewMsg(e.target.value)}
+                        required
+                      />
+                    </div>
+
+                    <button type="submit" className="addTOCart__btn">
+                      Submit
+                    </button>
+                  </form>
+                </div>
+              )}
+            </Col>
+
+            <Col lg="12" className="mb-5 mt-4">
+              <h2 className="related__Product-title">You might also like</h2>
+            </Col>
+
+            {relatedProduct.map((item) => (
+              <Col lg="3" md="4" sm="6" xs="6" className="mb-4" key={item.id}>
+                <ProductCard item={item} />
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </section>
+    </Helmet>
   );
 };
 
-export default FoodListing;
+export default FoodDetails;
