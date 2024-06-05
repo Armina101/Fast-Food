@@ -1,0 +1,28 @@
+{
+    "users": [
+        { "id": 1, "name": "Amina",
+        "email": "Afolabijolayemi@gmail.com",
+        "password": "Pringles&1" },
+        { "id": 2, "name": "Alx",
+        "email": "Student@alx.com",
+        "password": "alx-student" }
+    ],
+    "products": [
+        { "id": 1, "name": "Chocolate Cookies",
+        "price": "10.99",
+        "description": "Yummy and Delicious" }
+    ],
+    "carts": [
+        { "userId": 1, "items": [{ "productId": 1, "quantity": 2 }, { "productId": 2, "quantity": 1 }]
+        }
+    ],
+    "favourites": [
+        { "userId": 1, "productId": 1 },
+        { "userId": 1, "productId": 2 }
+    ],
+    "orders": [
+        { "userId": 1, "items": [{ "productId": 1, "quantity": 2},
+        { "productId": 2, "quantity": 1}],
+    "total": 40.99, "status": "completed" }
+    ]
+}
