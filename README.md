@@ -1,3 +1,39 @@
+# AUTHOR
+Aminat Afolabi
+
+# FastFood Web Application
+Welcome to FastFood, a modern food delivery web application designed to streamline the ordering process for users and provide a seamless experience from browsing menus to doorstep delivery.
+
+## Prerequisites
+Before you begin, ensure you have met the following requirements:- Node.js and npm installed on your machine.
+
+## Installation
+To install FastFood, follow these steps:
+1. Clone the repository to your local machine:   ```   git clone https://github.com/Armina101/fastfood.git   ```
+2. Navigate to the project directory:   ```   cd fastfood   ```
+3. Install dependencies using npm:   ```   npm install   ```
+
+
+## Running the Application
+To run FastFood locally, use the following command:
+```npm start```
+Once the server is running, you can access the application by navigating to `http://localhost:3000` in your web browser.
+
+
+## Usage
+Once the application is running, you can use FastFood to:
+- Browse menus from various restaurants.- Add items to your cart and proceed to checkout.- Create an account to save your preferences and view order history.
+
+## Testing
+FastFood includes automated tests to ensure quality and reliability. You can run the tests using the following command:
+```npm test```
+
+## Deployment
+To deploy FastFood to a production environment, follow these steps:
+1. Build the application for production:   ```   npm run build   ```
+2. Deploy the built files to your hosting service of choice.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
