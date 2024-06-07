@@ -22,38 +22,32 @@ const TestimonialSlider = () => {
     <Slider {...settings}>
       <div>
         <p className="review__text">
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
-          atque, quam minus totam maiores laborum! Impedit consectetur illum
-          aliquid odit. Odit dolore ipsum quod debitis nostrum necessitatibus
-          quis dolorem quas!"
+          "The variety of delicacies available on FastFood is amazing. 
+          I can always find something new to try, and the food quality is top-notch!"
         </p>
         <div className=" slider__content d-flex align-items-center gap-3 ">
           <img src={ava01} alt="avatar" className=" rounded" />
-          <h6>Jhon Doe</h6>
+          <h6>Jordan Bloomberg</h6>
         </div>
       </div>
       <div>
         <p className="review__text">
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
-          atque, quam minus totam maiores laborum! Impedit consectetur illum
-          aliquid odit. Odit dolore ipsum quod debitis nostrum necessitatibus
-          quis dolorem quas!"
+          "FastFood makes it so convenient to order food. The checkout process is quick, 
+          and I love being able to save my favorite meals for easy reordering."
         </p>
         <div className="slider__content d-flex align-items-center gap-3 ">
           <img src={ava02} alt="avatar" className=" rounded" />
-          <h6>Mitchell Marsh</h6>
+          <h6>Tiffany Hadish</h6>
         </div>
       </div>
       <div>
         <p className="review__text">
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
-          atque, quam minus totam maiores laborum! Impedit consectetur illum
-          aliquid odit. Odit dolore ipsum quod debitis nostrum necessitatibus
-          quis dolorem quas!"
+          "The best food delivery app I've ever used! FastFood's selection of restaurants 
+          and the overall experience is fantastic. I'm a loyal customer for life"
         </p>
         <div className="slider__content d-flex align-items-center gap-3 ">
           <img src={ava03} alt="avatar" className=" rounded" />
-          <h6>Steven Crock</h6>
+          <h6>Muhammad Ali</h6>
         </div>
       </div>
     </Slider>

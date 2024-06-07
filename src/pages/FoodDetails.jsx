@@ -129,21 +129,21 @@ const FoodDetails = () => {
               ) : (
                 <div className="tab__form mb-3">
                   <div className="review pt-5">
-                    <p className="user__name mb-0">Jhon Doe</p>
-                    <p className="user__email">jhon1@gmail.com</p>
-                    <p className="feedback__text">great product</p>
+                    <p className="user__name mb-0">Jordan Bloomberg</p>
+                    <p className="user__email">jordanberg@gmail.com</p>
+                    <p className="feedback__text">great food</p>
                   </div>
 
                   <div className="review">
-                    <p className="user__name mb-0">Jhon Doe</p>
-                    <p className="user__email">jhon1@gmail.com</p>
-                    <p className="feedback__text">great product</p>
+                    <p className="user__name mb-0">Tiffany Hadish</p>
+                    <p className="user__email">thadish@gmail.com</p>
+                    <p className="feedback__text">great food</p>
                   </div>
 
                   <div className="review">
-                    <p className="user__name mb-0">Jhon Doe</p>
-                    <p className="user__email">jhon1@gmail.com</p>
-                    <p className="feedback__text">great product</p>
+                    <p className="user__name mb-0">Muhammad Ali</p>
+                    <p className="user__email">muhaali@gmail.com</p>
+                    <p className="feedback__text">great food</p>
                   </div>
                   <form className="form" onSubmit={submitHandler}>
                     <div className="form__group">

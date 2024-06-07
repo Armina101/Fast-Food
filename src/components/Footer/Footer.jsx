@@ -16,18 +16,18 @@ const Footer = () => {
               <img src={logo} alt="logo" />
               <h5>Fast Food</h5>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Nesciunt pariatur accusamus
+                Welcome to Fast Food where we are dedicated to delivering 
+                delight, one order at a Time!
               </p>
             </div>
           </Col>
 
           <Col lg="3" md="4" sm="6">
-            <h5 className="footer__title">Delivery Time</h5>
+            <h5 className="footer__title">Delivery Timeframe</h5>
             <ListGroup className="deliver__time-list">
               <ListGroupItem className=" delivery__time-item border-0 ps-0">
                 <span>Sunday - Friday</span>
-                <p>10:00am - 11:00pm</p>
+                <p>8:00am - 11:00pm</p>
               </ListGroupItem>
 
               <ListGroupItem className=" delivery__time-item border-0 ps-0">
@@ -48,7 +48,7 @@ const Footer = () => {
               </ListGroupItem>
 
               <ListGroupItem className=" delivery__time-item border-0 ps-0">
-                <span>Email: example@gmail.com</span>
+                <span>Email: alx-student@gmail.com</span>
               </ListGroupItem>
             </ListGroup>
           </Col>
@@ -68,7 +68,7 @@ const Footer = () => {
         <Row className="mt-5">
           <Col lg="6" md="6">
             <p className="copyright__text">
-              Copyright - 2022, All Rights
+              Copyright - 2024, All Rights
               Reserved.
             </p>
           </Col>
@@ -77,27 +77,27 @@ const Footer = () => {
               <p className="m-0">Follow: </p>
               <span>
                 {" "}
-                <Link to="https://www.facebook.com/muhib160">
+                <Link to="https://www.facebook.com">
                   <i class="ri-facebook-line"></i>
                 </Link>{" "}
               </span>
 
               <span>
-                <Link to="https://github.com/muhib160">
+                <Link to="https://github.com/Armina101.git">
                   <i class="ri-github-line"></i>
                 </Link>
               </span>
 
               <span>
                 {" "}
-                <Link to=" https://www.youtube.com/c/MuhibsTechDiary">
+                <Link to=" https://www.youtube.com">
                   <i class="ri-youtube-line"></i>
                 </Link>{" "}
               </span>
 
               <span>
                 {" "}
-                <Link to=" https://www.linkedin.com/in/muhib160/">
+                <Link to=" https://www.linkedin.com">
                   <i class="ri-linkedin-line"></i>
                 </Link>{" "}
               </span>

@@ -34,18 +34,18 @@ const featureData = [
   {
     title: "Quick Delivery",
     imgUrl: featureImg01,
-    desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus, doloremque.",
+    desc: "Our Quick Delivery service ensures that your food arrives hot and fresh, right to your doorstep. ",
   },
 
   {
     title: "Super Dine In",
     imgUrl: featureImg02,
-    desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus, doloremque.",
+    desc: "Choose from a variety, and enjoy your meal in the comfort of your own home. Whether you're craving a gourmet dinner or a quick snack, we bring the restaurant to you.",
   },
   {
     title: "Easy Pick Up",
     imgUrl: featureImg03,
-    desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus, doloremque.",
+    desc: "Prefer to pick up your order yourself? our Pick-Up option makes it easy, skip the line and save time with our hassle-free pick-up service.",
   },
 ];
 
@@ -98,15 +98,16 @@ const Home = () => {
           <Row>
             <Col lg="6" md="6">
               <div className="hero__content  ">
-                <h5 className="mb-3">Easy way to make an order</h5>
+                <h5 className="mb-3">Easy way to order food</h5>
                 <h1 className="mb-4 hero__title">
-                  <span>HUNGRY?</span> Just wait <br /> food at
-                  <span> your door</span>
+                  <span>HUNGRY?</span> Just wait for<br /> food at
+                  <span> your doorstep</span>
                 </h1>
 
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui
-                  magni delectus tenetur autem, sint veritatis!
+                FastFood is your one-stop solution for convenient and delicious food delivery. 
+                Whether you're looking to dine in with ease, enjoy quick delivery, or prefer picking up your order, 
+                We have got you covered. 
                 </p>
 
                 <div className="hero__btns d-flex align-items-center gap-5 mt-4">
@@ -124,7 +125,7 @@ const Home = () => {
                     <span className="shipping__icon">
                       <i class="ri-car-line"></i>
                     </span>{" "}
-                    No shipping charge
+                    Free shipping on your first order
                   </p>
 
                   <p className=" d-flex align-items-center gap-2 ">
@@ -155,17 +156,16 @@ const Home = () => {
           <Row>
             <Col lg="12" className="text-center">
               <h5 className="feature__subtitle mb-4">What we serve</h5>
-              <h2 className="feature__title">Just sit back at home</h2>
+              <h2 className="feature__title">Just relax at home</h2>
               <h2 className="feature__title">
-                we will <span>take care</span>
+                and we will <span>deliver your food</span>
               </h2>
               <p className="mb-1 mt-4 feature__text">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor,
-                officiis?
+              Explore a wide variety of menus from native dishes to gourmet and 
+              experience the best in food delivery service today.
               </p>
               <p className="feature__text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aperiam, eius.{" "}
+                  We deliver delight, one order at a time.{" "}
               </p>
             </Col>
 
@@ -254,13 +254,13 @@ const Home = () => {
             <Col lg="6" md="6">
               <div className="why__tasty-treat">
                 <h2 className="tasty__treat-title mb-4">
-                  Why <span>Tasty Treat?</span>
+                  Why <span>Fast Food?</span>
                 </h2>
                 <p className="tasty__treat-desc">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Dolorum, minus. Tempora reprehenderit a corporis velit,
-                  laboriosam vitae ullam, repellat illo sequi odio esse iste
-                  fugiat dolor, optio incidunt eligendi deleniti!
+                With FastFood, you can count on consistent quality and reliability. 
+                Our robust system ensures that your orders are accurately processed and delivered, 
+                providing a dependable food delivery experience every time. Whether you want to dine in, opt for a quick delivery, or pick up your order at your convenience, 
+                FastFood offers flexible options to suit your lifestyle and preferences.
                 </p>
 
                 <ListGroup className="mt-4">
@@ -270,8 +270,8 @@ const Home = () => {
                       foods
                     </p>
                     <p className="choose__us-desc">
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Quia, voluptatibus.
+                    From the moment you place your order to the time it reaches your table, 
+                    we ensure that your food is fresh, hot, and bursting with flavor. 
                     </p>
                   </ListGroupItem>
 
@@ -280,8 +280,8 @@ const Home = () => {
                       <i class="ri-checkbox-circle-line"></i> Quality support
                     </p>
                     <p className="choose__us-desc">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Qui, earum.
+                    We are committed to providing exceptional customer service. 
+                    Our support team is always ready to assist you with any questions or concerns you may have.
                     </p>
                   </ListGroupItem>
 
@@ -291,8 +291,7 @@ const Home = () => {
                       location{" "}
                     </p>
                     <p className="choose__us-desc">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Qui, earum.
+                    Enjoy the convenience of having delicious food delivered to you no matter where you are.
                     </p>
                   </ListGroupItem>
                 </ListGroup>
@@ -328,9 +327,8 @@ const Home = () => {
                   What our <span>customers</span> are saying
                 </h2>
                 <p className="testimonial__desc">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Distinctio quasi qui minus quos sit perspiciatis inventore
-                  quis provident placeat fugiat!
+                FastFood has completely changed the way I order food. 
+                The interface is super user-friendly, and the delivery is always on time. Highly recommend!
                 </p>
 
                 <TestimonialSlider />
